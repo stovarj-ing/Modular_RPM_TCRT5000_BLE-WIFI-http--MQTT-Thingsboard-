@@ -1,68 +1,33 @@
-# Proyecto: Instrumentación Electrónica ESP32-C6
+# Entrega3 - Instrumentacion Electronica ESP32-C6
 
-## Objetivo
+Proyecto modular en ESP-IDF v5.x para medir RPM de un motor DC con un sensor TCRT5000 y controlar un LED usando tres fases de comunicacion.
 
-Implementar tres fases de conectividad usando ESP32-C6 y ESP-IDF:
+## Estructura
 
-1. Bluetooth BLE
-2. WiFi con servidor web
-3. MQTT
+- `fase_A_bluetooth`: base para BLE GATT Server.
+- `fase_B_wifi`: WiFi station + servidor HTTP con lectura de RPM y control de LED.
+- `fase_C_mqtt`: base para WiFi + MQTT.
 
-## Hardware
+Cada fase es un proyecto ESP-IDF independiente y contiene su propia copia del componente `rpm_sensor`.
 
-- ESP32-C6
-- Sensor TCRT5000
-- Motor DC 9V
-- LED indicador
+## Fase B
 
-## IDE
+Edita estas macros en `fase_B_wifi/main/main.c`:
 
-- VS Code
-- ESP-IDF framework
+```c
+#define WIFI_SSID     "TU_SSID"
+#define WIFI_PASSWORD "TU_PASSWORD"
+#define RPM_SENSOR_GPIO GPIO_NUM_4
+#define LED_GPIO        GPIO_NUM_8
+```
 
-## Arquitectura
+Compila desde la carpeta de la fase:
 
-Cada fase es un proyecto independiente:
+```powershell
+cd fase_B_wifi
+idf.py set-target esp32c6
+idf.py build
+idf.py flash monitor
+```
 
-- fase_A_bluetooth
-- fase_B_wifi
-- fase_C_mqtt
-
-Todos reutilizan un componente compartido:
-
-- rpm_sensor/
-
-## Función del sensor
-
-El TCRT5000 mide pulsos del motor para calcular RPM.
-
-El cálculo usa:
-- interrupciones GPIO
-- temporización con FreeRTOS
-- conteo de pulsos
-
-## Requisitos fase A
-
-- BLE GATT Server
-- enviar RPM al celular
-- recibir comando LED ON/OFF
-
-## Requisitos fase B
-
-- conexión WiFi
-- servidor web HTTP
-- mostrar RPM
-- controlar LED desde navegador
-
-## Requisitos fase C
-
-- conexión MQTT
-- publicar RPM
-- suscribirse a tópico de control LED
-
-## Restricciones
-
-- usar ESP-IDF
-- código modular
-- usar FreeRTOS
-- evitar código Arduino
+Cuando el ESP32-C6 obtenga IP, abre `http://<IP_DEL_ESP32>/`.
