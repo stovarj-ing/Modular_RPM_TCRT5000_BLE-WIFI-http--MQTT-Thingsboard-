@@ -1,0 +1,22 @@
+Command: cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\Espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=0 C:\IoT\Entrega3\fase_A_bluetooth
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Espressif\python_env\idf5.5_py3.12_env\Lib\site-packages\kconfgen\__main__.py", line 18, in <module>
+    main()
+  File "C:\Espressif\python_env\idf5.5_py3.12_env\Lib\site-packages\kconfgen\core.py", line 734, in main
+    update_if_changed(temp_file, filename, encoding=kconfig_encoding)
+  File "C:\Espressif\python_env\idf5.5_py3.12_env\Lib\site-packages\kconfgen\core.py", line 550, in update_if_changed
+    with open(destination, "w", encoding=encoding) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:/IoT/Entrega3/fase_A_bluetooth/sdkconfig'
+CMake Error at C:/Espressif/frameworks/esp-idf-v5.5.3/tools/cmake/kconfig.cmake:230 (message):
+  Failed to run kconfgen
+  (C:/Espressif/python_env/idf5.5_py3.12_env/Scripts/python.exe;-m;kconfgen;--list-separator=semicolon;--kconfig;C:/Espressif/frameworks/esp-idf-v5.5.3/Kconfig;--sdkconfig-rename;C:/Espressif/frameworks/esp-idf-v5.5.3/sdkconfig.rename;--config;C:/IoT/Entrega3/fase_A_bluetooth/sdkconfig;--defaults;C:/IoT/Entrega3/fase_A_bluetooth/sdkconfig.defaults;--env;IDF_MINIMAL_BUILD=n;--env-file;C:/IoT/Entrega3/fase_A_bluetooth/build_check/config.env).
+  Error 1
+Call Stack (most recent call first):
+  C:/Espressif/frameworks/esp-idf-v5.5.3/tools/cmake/build.cmake:706 (__kconfig_generate_config)
+  C:/Espressif/frameworks/esp-idf-v5.5.3/tools/cmake/project.cmake:741 (idf_build_process)
+  CMakeLists.txt:4 (project)
+
+

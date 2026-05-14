@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    add-symbol-file C:/IoT/Entrega3/fase_A_bluetooth/build_check/bootloader/bootloader.elf
+set confirm on
+
+# Load application symbols
+file C:/IoT/Entrega3/fase_A_bluetooth/build_check/fase_A_bluetooth.elf

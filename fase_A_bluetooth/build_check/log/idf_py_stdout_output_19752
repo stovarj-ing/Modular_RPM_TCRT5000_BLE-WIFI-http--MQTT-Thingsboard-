@@ -1,0 +1,18 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\IoT\Entrega3\fase_A_bluetooth\build_check\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 C:/IoT/Entrega3/fase_A_bluetooth/build_check/bootloader/bootloader.bin"
+Bootloader binary size 0x57c0 bytes. 0x2840 bytes (31%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ble_server.c.obj
+[5/9] Linking C static library esp-idf\main\libmain.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable fase_A_bluetooth.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.12.dev1
+Creating esp32c6 image...
+Merged 2 ELF sections
+Successfully created esp32c6 image.
+Generated C:/IoT/Entrega3/fase_A_bluetooth/build_check/fase_A_bluetooth.bin
+[9/9] C:\Windows\system32\cmd.exe /C "cd /D C:\IoT\Entrega3\fase_A_bluetooth\build_check\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.12_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/IoT/Entrega3/fase_A_bluetooth/build_check/partition_table/partition-table.bin C:/IoT/Entrega3/fase_A_bluetooth/build_check/fase_A_bluetooth.bin"
+fase_A_bluetooth.bin binary size 0xa2320 bytes. Smallest app partition is 0x100000 bytes. 0x5dce0 bytes (37%) free.
